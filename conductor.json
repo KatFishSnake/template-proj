@@ -1,0 +1,7 @@
+{
+	"scripts": {
+		"setup": "cp $CONDUCTOR_ROOT_PATH/.env.local .env.local && cp -r $CONDUCTOR_ROOT_PATH/.vercel . && bun i",
+		"run": "bun run dev",
+		"archive": ""
+	}
+}

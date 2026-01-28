@@ -1,0 +1,26 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  verify:
+    name: Type Check & Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: TypeScript Check
+        run: bun run typecheck
+
+      - name: Biome Check
+        run: bun run check:ci
